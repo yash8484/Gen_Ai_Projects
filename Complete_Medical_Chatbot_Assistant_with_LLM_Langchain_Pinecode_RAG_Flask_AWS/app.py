@@ -20,8 +20,8 @@ OPENROUTER_API_KEY=os.environ.get('openrouter_api_key')
 openai_base = "https://openrouter.ai/api/v1"
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
-#os.environ["OPENROUTER_API_KEY"] = OPENROUTER_API_KEY
-#os.environ["OPENROUTER_API_KEY"]="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"
+os.environ["OPENROUTER_API_KEY"] = OPENROUTER_API_KEY
+
 
 
 embeddings = download_hugging_face_embeddings()
@@ -40,7 +40,6 @@ retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":
 
 llm = ChatOpenAI(
     openai_api_base=openai_base,
-    #openai_api_key = "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",
     openai_api_key=OPENROUTER_API_KEY,
     model_name="deepseek/deepseek-r1-0528:free",
     temperature=0.0,
